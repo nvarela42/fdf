@@ -6,26 +6,52 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 03:43:42 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/11 11:58:17 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/15 10:40:09 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		ft_init_hoript(t_map *map, int i, int j)
+static void		ft_vertipt(t_point *vpt, t_map *map, int i, int j)
 {
+	vpt->x = vpt->xi;
+	vpt->y = vpt->yi;
+	if (i != (map->s_map - 1))
+	{
+		vpt->xend = map->pt[i + 1][j].xi;
+		vpt->yend = map->pt[i + 1][j].yi;
+	}
+	else
+	{
+		vpt->xend = vpt->xi;
+		vpt->yend = vpt->yi;
+	}
+	vpt->xdep = vpt->xend - vpt->xi;
+	vpt->ydep = vpt->yend - vpt->yi;
+	vpt->xplus = (vpt->xdep > 0) ? 1 : -1;
+	vpt->yplus = (vpt->ydep > 0) ? 1 : -1;
+}
 
-	map->pt[i][j].x = map->pt[i][j].xi;
-	map->pt[i][j].y = map->pt[i][j].yi;
+/*calc*/
+
+static void		ft_hoript(t_point *hpt, t_map *map, int i, int j)
+{
+	hpt->x = hpt->xi;
+	hpt->y = hpt->yi;
 	if (j != (map->sline - 1))
 	{
-		map->pt[i][j].xend = map->pt[i][j + 1].xi;
-		map->pt[i][j].yend = map->pt[i][j + 1].yi;
+		hpt->xend = map->pt[i][j + 1].xi;
+		hpt->yend = map->pt[i][j + 1].yi;
 	}
-	map->pt[i][j].xdep = map->pt[i][j].xend - map->pt[i][j].xi;
-	map->pt[i][j].ydep = map->pt[i][j].yend - map->pt[i][j].yi;
-	map->pt[i][j].xplus = (map->pt[i][j].xdep > 0) ? 1 : -1;
-	map->pt[i][j].yplus = (map->pt[i][j].ydep > 0) ? 1 : -1;
+	else
+	{
+		hpt->xend = hpt->xi;
+		hpt->yend = hpt->yi;
+	}
+	hpt->xdep = hpt->xend - hpt->xi;
+	hpt->ydep = hpt->yend - hpt->yi;
+	hpt->xplus = (hpt->xdep > 0) ? 1 : -1;
+	hpt->yplus = (hpt->ydep > 0) ? 1 : -1;
 }
 
 int				ft_start_for_draw(t_map *map)
@@ -34,29 +60,25 @@ int				ft_start_for_draw(t_map *map)
 	int			j;
 	t_point		*hoript;
 	t_point		*vertipt;
-;
-	i = 0;
-	if (!(hoript = (t_point *)malloc(sizeof(t_point))))
-		return (-1);
-	if (!(vertipt = (t_point *)malloc(sizeof(t_point))))
-		return (-1);
-	while (i < map->s_map)
+
+	i = -1;
+	while (++i < map->s_map)
 	{
-		j = 0;
-		while (j < map->sline)
+		j = -1;
+		while (++j < map->sline)
 		{
-			if (j != (map->sline - 1))
-			{
-				ft_init_hoript(map, i, j);
-				hoript = &map->pt[i][j];
-				ft_drawline(*map->pt);
-		//		free(point);
-			}
-			j++;
+		
+			hoript = &map->pt[i][j];
+			vertipt = &map->pt[i][j];
+			ft_hoript(hoript, map, i, j);
+			ft_drawline(hoript);
+			vertipt = &map->pt[i][j];
+			ft_vertipt(vertipt, map, i, j);
+			ft_drawline(vertipt);
 		}
-		i++;
 	}
-	mlx_put_image_to_window(map->mlx, map->win, map->image, 100, 100);
+	mlx_put_image_to_window(map->mlx, map->win, map->image,
+	map->xpos, map->ypos);
 	mlx_loop(map->mlx);
 	return (0);
 }

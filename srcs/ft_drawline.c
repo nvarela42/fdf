@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 03:34:48 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/11 11:58:19 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/15 10:42:22 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void		ft_other(t_point *pt)
 {
 	int			i;
-
+	
 	pt->cumul = pt->ydep / 2;
 	i = 1;
 	while (i <= pt->ydep)
@@ -28,13 +28,14 @@ static void		ft_other(t_point *pt)
 			pt->x += pt->xplus;
 		}
 		ft_putpix_image(pt);
+		i++;
 	}
 }
 
 static void		ft_dx_is_sup(t_point *pt)
 {
-	int			i;
-
+		int			i;
+	
 	pt->cumul = pt->xdep / 2;
 	i = 1;
 	while (i <= pt->xdep)
@@ -53,6 +54,9 @@ static void		ft_dx_is_sup(t_point *pt)
 
 void			ft_drawline(t_point *pt)
 {
+
+	pt->xdep = abs(pt->xdep);
+	pt->ydep = abs(pt->ydep);
 	ft_putpix_image(pt);
 	if (pt->xdep > pt->ydep)
 		ft_dx_is_sup(pt);

@@ -10,8 +10,10 @@
 # define SIZE 100
 # define MARGIN 5
 # define HEIGHT_MUL 1
+# define DEF_COLOR 0xFFFFFF
 # define MAX_XSIZE 1900
 # define MAX_YSIZE 1600
+# define SCALE 100
 
 typedef	struct s_map	t_map;
 typedef struct s_point	t_point;
@@ -66,7 +68,8 @@ int						ft_data_processing(t_map *map);
 void					ft_search_coord(t_map *map);
 void					ft_mlx_init(t_map *map);
 int						ft_start_for_draw(t_map *map);
-void					ft_putpix_image(t_point *pt);
+void					ft_putpix_image(t_point *pt);	
 void					ft_drawline(t_point *pt);
+void					ft_search_size_for_win(t_map *map);
 
 #endif

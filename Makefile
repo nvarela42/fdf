@@ -24,6 +24,7 @@ SRC			=	main.c\
 				ft_start_for_draw.c\
 				ft_drawline.c\
 				ft_putpix_image.c\
+				ft_size_for_win.c\
 
 OBJ			=	$(patsubst %.c,srcs/%.o,$(SRC))
 

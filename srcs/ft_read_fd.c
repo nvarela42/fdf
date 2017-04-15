@@ -6,11 +6,16 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:26:52 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/06 23:08:41 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/15 10:04:03 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+/*
+** collect each line of the fd
+** "recuperation de chaque ligne du fd"
+*/
 
 int			ft_read_fd(char *file, t_map *map)
 {
