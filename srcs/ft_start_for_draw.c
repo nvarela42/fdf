@@ -6,11 +6,16 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 03:43:42 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/15 10:40:09 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/18 19:11:03 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+/*
+**calculate for draw to the vertical point
+**"calcule pour relier les points verticaux"
+*/
 
 static void		ft_vertipt(t_point *vpt, t_map *map, int i, int j)
 {
@@ -32,7 +37,10 @@ static void		ft_vertipt(t_point *vpt, t_map *map, int i, int j)
 	vpt->yplus = (vpt->ydep > 0) ? 1 : -1;
 }
 
-/*calc*/
+/*
+**calculate for draw the horizontal point
+**"calcule pour relier les pout horizontaux"
+*/
 
 static void		ft_hoript(t_point *hpt, t_map *map, int i, int j)
 {
@@ -67,7 +75,7 @@ int				ft_start_for_draw(t_map *map)
 		j = -1;
 		while (++j < map->sline)
 		{
-		
+
 			hoript = &map->pt[i][j];
 			vertipt = &map->pt[i][j];
 			ft_hoript(hoript, map, i, j);
@@ -79,6 +87,10 @@ int				ft_start_for_draw(t_map *map)
 	}
 	mlx_put_image_to_window(map->mlx, map->win, map->image,
 	map->xpos, map->ypos);
+	ft_putendl("ic");
+
+	mlx_hook(map->win, 2, 3, ft_hook, &map);
+	mlx_key_hook(map->win, ft_manage_events, map);
 	mlx_loop(map->mlx);
 	return (0);
 }

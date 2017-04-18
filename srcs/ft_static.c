@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:23:29 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/14 21:40:14 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/18 17:08:19 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void			ft_fill_static_struct(t_map *map)
 	map->ysize = MAX_YSIZE;
 	map->xpos = 0;
 	map->ypos = 0;
+	map->multz = HEIGHT_MUL;
 }
 
 t_map				*ft_static(void)

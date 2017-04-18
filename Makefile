@@ -1,7 +1,7 @@
 
 SYS := $(shell clang -dumpmachine)
 
-CC			=	clang
+CC			=	gcc
 
 NAME		=	fdf
 
@@ -25,6 +25,9 @@ SRC			=	main.c\
 				ft_drawline.c\
 				ft_putpix_image.c\
 				ft_size_for_win.c\
+				ft_manage_events.c\
+				ft_position_events.c\
+				ft_height_events.c\
 
 OBJ			=	$(patsubst %.c,srcs/%.o,$(SRC))
 
@@ -46,18 +49,18 @@ HDR			=	$(DIR)/$(DIR).a
 
 CFLAGS		=	$(CFLAGS1) $(OFLAGS)
 
-all:		$(NAME) $(HDR) 
+all:		$(NAME) $(HDR)
 
-$(NAME):	$(OBJ) $(HDR) 
+$(NAME):	$(OBJ) $(HDR)
 			make -C $(DIRMLX)
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LFLAGS) $(MLXFLAG)
-		
+
 %.o: %.c
 	$(CC) $(CFLAGS)  -c -o $@ $^
 
 $(HDR):
 		make -C $(DIR)
-		
+
 clean:
 		make -C $(DIR) clean
 		rm -f $(OBJ)
@@ -69,4 +72,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY: all clean fclean re	
+.PHONY: all clean fclean re

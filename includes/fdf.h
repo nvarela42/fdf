@@ -15,6 +15,24 @@
 # define MAX_YSIZE 1600
 # define SCALE 100
 
+# ifdef __linux
+# define ESCAPEKEY 65307
+# define UPKEY 65362
+# define DOWNKEY 63364
+# define LEFTKEY 65361
+# define RIGHTKEY 65363
+# define ZKEY 122
+# define XKEY 123
+# else
+# define ESCAPEKEY 53
+# define UPKEY 126
+# define DOWNKEY 125
+# define LEFTKEY 123
+# define RIGHTKEY 124
+# define ZKEY 6 
+# define XKEY 7
+# endif
+
 typedef	struct s_map	t_map;
 typedef struct s_point	t_point;
 
@@ -41,6 +59,7 @@ struct					s_map
 	int					ysize;
 	int					xpos;
 	int					ypos;
+	int					multz;
 };
 
 struct					s_point
@@ -71,5 +90,13 @@ int						ft_start_for_draw(t_map *map);
 void					ft_putpix_image(t_point *pt);	
 void					ft_drawline(t_point *pt);
 void					ft_search_size_for_win(t_map *map);
+int						ft_manage_events(int keycode, void *param);
+void					ft_upkey(t_map *map);
+void					ft_downkey(t_map *map);
+void					ft_leftkey(t_map *map);
+void					ft_rightkey(t_map *map);
+void					ft_zkey(t_map *map);
+void					ft_xkey(t_map *map);
+int						ft_hook(t_map *map);
 
 #endif

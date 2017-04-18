@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 23:08:49 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/15 06:57:30 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/18 17:16:00 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void		ft_cal_whith_z(t_point **point, t_map *map, int i, int j)
 	{
 		while (j < map->sline)
 		{
-			point[i][j].yi = point[i][j].yi - (point[i][j].z * HEIGHT_MUL);
+			point[i][j].yi = point[i][j].yi - (point[i][j].z * map->multz);
 			map->max_x = map->max_x < point[i][j].xi ?
 			point[i][j].xi : map->max_x;
 			map->max_y = map->max_y > point[i][j].yi ?
@@ -87,6 +87,7 @@ static void		ft_cal_whith_z(t_point **point, t_map *map, int i, int j)
 
 /*
 ** recalculate the max_y and y point for replace in positive map
+** "recalcule le max_y et le point y pour replacer la map en positif"
 */
 
 static void		ft_cal_max_y(t_point **point, t_map *map, int i, int j)
