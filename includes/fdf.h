@@ -23,14 +23,20 @@
 # define RIGHTKEY 65363
 # define ZKEY 122
 # define XKEY 123
+# define BASICMAPKEY 15
+# define RIGHTMOUSE 1
+# define LEFTMOUSE 2
 # else
 # define ESCAPEKEY 53
-# define UPKEY 126
-# define DOWNKEY 125
-# define LEFTKEY 123
-# define RIGHTKEY 124
+# define UPKEY 13
+# define DOWNKEY 1
+# define LEFTKEY 0
+# define RIGHTKEY 2
 # define ZKEY 6 
 # define XKEY 7
+# define RESETKEY 15
+# define RIGHTMOUSE 1
+# define LEFTMOUSE 2
 # endif
 
 typedef	struct s_map	t_map;
@@ -91,12 +97,14 @@ void					ft_putpix_image(t_point *pt);
 void					ft_drawline(t_point *pt);
 void					ft_search_size_for_win(t_map *map);
 int						ft_manage_events(int keycode, void *param);
+int						ft_mouse_events(int button, void *param);
 void					ft_upkey(t_map *map);
 void					ft_downkey(t_map *map);
 void					ft_leftkey(t_map *map);
 void					ft_rightkey(t_map *map);
 void					ft_zkey(t_map *map);
 void					ft_xkey(t_map *map);
-int						ft_hook(t_map *map);
+void					ft_resetkey(t_map *map);
+void					ft_usage(t_map *map);
 
 #endif

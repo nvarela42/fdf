@@ -6,24 +6,18 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 16:41:13 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/18 18:47:48 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/21 19:14:23 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-int				ft_hook(t_map *map)
-{
-	(void)map;
-	exit(EXIT_SUCCESS);
-	return (0);
-}
 
 int				ft_manage_events(int keycode, void *param)
 {
 	t_map		*event;
 
 	event = (t_map *)param;
+//	printf("%d\n", keycode);
 	if (keycode == ESCAPEKEY)
 		exit(EXIT_SUCCESS);
 	else if (keycode == UPKEY)
@@ -38,5 +32,7 @@ int				ft_manage_events(int keycode, void *param)
 		ft_zkey(event);
 	else if (keycode == XKEY)
 		ft_xkey(event);
-	return(0);
+	else if (keycode == RESETKEY)
+		ft_resetkey(event);
+	return (0);
 }

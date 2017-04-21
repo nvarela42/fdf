@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:26:17 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/15 09:59:19 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/21 13:38:23 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int			ft_check_color(char *str)
 	int				def_color;
 
 	i = 2;
-	def_color = DEF_COLOR; 
+	def_color = DEF_COLOR;
 	if (ft_ishexa(str) == 0)
 	{
 		ft_error(2, str);
@@ -84,7 +84,7 @@ static t_point		*ft_fill_tab_struct(char **splitspace, int j, int size)
 	int				i;
 	t_point			*tabpt;
 	char			**splitcomma;
-	
+
 	if (!((tabpt = (t_point *)malloc(sizeof(t_point) * size + 1))))
 		return (NULL);
 	i = 0;

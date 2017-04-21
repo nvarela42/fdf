@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 23:08:49 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/18 17:16:00 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/21 13:44:23 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 static void		ft_cal_xtrans_ytrans(t_map *map)
 {
 	int			arraycal[6];
-	
+
 	arraycal[0] = 0 * map->scale + MARGIN;
 	arraycal[1] = 0 * map->scale + MARGIN;
 	arraycal[2] = 1 * map->scale + MARGIN;

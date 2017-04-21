@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 03:43:42 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/18 19:11:03 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/21 20:18:21 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,19 @@ static void		ft_hoript(t_point *hpt, t_map *map, int i, int j)
 	hpt->yplus = (hpt->ydep > 0) ? 1 : -1;
 }
 
-int				ft_start_for_draw(t_map *map)
+void			ft_while(t_map *map)
 {
 	int			i;
 	int			j;
 	t_point		*hoript;
 	t_point		*vertipt;
 
-	i = -1;
-	while (++i < map->s_map)
+	i = 0;
+	while (i < map->s_map)
 	{
-		j = -1;
-		while (++j < map->sline)
+		j = 0;
+		while (j < map->sline)
 		{
-
 			hoript = &map->pt[i][j];
 			vertipt = &map->pt[i][j];
 			ft_hoript(hoript, map, i, j);
@@ -83,14 +82,20 @@ int				ft_start_for_draw(t_map *map)
 			vertipt = &map->pt[i][j];
 			ft_vertipt(vertipt, map, i, j);
 			ft_drawline(vertipt);
+			j++;
 		}
+		i++;
 	}
+}
+
+int				ft_start_for_draw(t_map *map)
+{
+	ft_mlx_init(map);
+	ft_while(map);
 	mlx_put_image_to_window(map->mlx, map->win, map->image,
 	map->xpos, map->ypos);
-	ft_putendl("ic");
-
-	mlx_hook(map->win, 2, 3, ft_hook, &map);
 	mlx_key_hook(map->win, ft_manage_events, map);
+	ft_usage(map);
 	mlx_loop(map->mlx);
 	return (0);
 }

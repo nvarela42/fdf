@@ -26,8 +26,10 @@ SRC			=	main.c\
 				ft_putpix_image.c\
 				ft_size_for_win.c\
 				ft_manage_events.c\
+				ft_usage.c\
 				ft_position_events.c\
 				ft_height_events.c\
+				ft_mouse_events.c\
 
 OBJ			=	$(patsubst %.c,srcs/%.o,$(SRC))
 

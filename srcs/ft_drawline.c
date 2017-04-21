@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 03:34:48 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/15 10:42:22 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/21 13:41:37 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void		ft_other(t_point *pt)
 {
 	int			i;
-	
+
 	pt->cumul = pt->ydep / 2;
 	i = 1;
 	while (i <= pt->ydep)
@@ -34,8 +34,8 @@ static void		ft_other(t_point *pt)
 
 static void		ft_dx_is_sup(t_point *pt)
 {
-		int			i;
-	
+	int			i;
+
 	pt->cumul = pt->xdep / 2;
 	i = 1;
 	while (i <= pt->xdep)
