@@ -1,7 +1,7 @@
 
 SYS := $(shell clang -dumpmachine)
 
-CC			=	gcc
+CC			=	clang
 
 NAME		=	fdf
 
@@ -29,6 +29,7 @@ SRC			=	main.c\
 				ft_usage.c\
 				ft_position_events.c\
 				ft_height_events.c\
+				ft_color_event.c\
 				ft_mouse_events.c\
 
 OBJ			=	$(patsubst %.c,srcs/%.o,$(SRC))

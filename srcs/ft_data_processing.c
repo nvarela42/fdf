@@ -79,7 +79,7 @@ static int			ft_init_ptstruct(t_map *map)
 **"initialisation des variables du tableau de struct"
 */
 
-static t_point		*ft_fill_tab_struct(char **splitspace, int j, int size)
+static t_point		*ft_fill_tab_struct(char **splitspace, int j, int size, t_map *map)
 {
 	int				i;
 	t_point			*tabpt;
@@ -97,7 +97,9 @@ static t_point		*ft_fill_tab_struct(char **splitspace, int j, int size)
 		tabpt[i].xi = i * 100 + 5;
 		tabpt[i].yi = j * 100 + 5;
 		tabpt[i].z = ft_atoi(splitcomma[0]);
-		if (splitcomma[1] == NULL)
+		map->max_z = map->max_z >= tabpt[i].z ? map->max_z : tabpt[i].z;
+		map->min_z = map->min_z <= tabpt[i].z ? map->min_z : tabpt[i].z;
+		 if (splitcomma[1] == NULL)
 			tabpt[i].color = DEF_COLOR;
 		else
 			tabpt[i].color = ft_check_color(splitcomma[1]);
@@ -130,7 +132,7 @@ int					ft_data_processing(t_map *map)
 		if (i != 0 && map->sline != checksize)
 			return (-1);
 		checksize = map->sline;
-		if (!(tmp_pt = ft_fill_tab_struct(splitspace, i, map->sline)))
+		if (!(tmp_pt = ft_fill_tab_struct(splitspace, i, map->sline, map)))
 			return (-1);
 		map->pt[i] = tmp_pt;
 		free_double_chartab(splitspace);

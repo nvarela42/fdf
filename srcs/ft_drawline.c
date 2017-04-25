@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-static void		ft_other(t_point *pt)
+static void		ft_isnot_sup(t_point *pt)
 {
 	int			i;
 
@@ -27,7 +27,10 @@ static void		ft_other(t_point *pt)
 			pt->cumul -= pt->ydep;
 			pt->x += pt->xplus;
 		}
-		ft_putpix_image(pt);
+		if (ft_static()->color_version == 1)
+			ft_putpix_image_color(pt);
+		if(ft_static()->color_version == 0)
+			ft_putpix_image(pt);
 		i++;
 	}
 }
@@ -47,7 +50,10 @@ static void		ft_dx_is_sup(t_point *pt)
 			pt->cumul -= pt->xdep;
 			pt->y += pt->yplus;
 		}
-		ft_putpix_image(pt);
+		if (ft_static()->color_version == 1)
+			ft_putpix_image_color(pt);
+		if (ft_static()->color_version == 0)
+			ft_putpix_image(pt);
 		i++;
 	}
 }
@@ -61,5 +67,5 @@ void			ft_drawline(t_point *pt)
 	if (pt->xdep > pt->ydep)
 		ft_dx_is_sup(pt);
 	else
-		ft_other(pt);
+		ft_isnot_sup(pt);
 }

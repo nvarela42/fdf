@@ -27,11 +27,14 @@ static void			ft_fill_static_struct(t_map *map)
 	map->ytrans = 0;
 	map->max_x = 0;
 	map->max_y = 0;
+	map->max_z = 0;
+	map->min_z = 0;
 	map->xsize = MAX_XSIZE;
 	map->ysize = MAX_YSIZE;
 	map->xpos = 0;
 	map->ypos = 0;
 	map->multz = HEIGHT_MUL;
+	map->color_version = 0;
 }
 
 t_map				*ft_static(void)

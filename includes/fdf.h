@@ -17,15 +17,17 @@
 
 # ifdef __linux
 # define ESCAPEKEY 65307
-# define UPKEY 65362
-# define DOWNKEY 63364
-# define LEFTKEY 65361
-# define RIGHTKEY 65363
+# define UPKEY 119
+# define DOWNKEY 115
+# define LEFTKEY 97
+# define RIGHTKEY 101
 # define ZKEY 122
-# define XKEY 123
-# define BASICMAPKEY 15
+# define XKEY 120
+# define RESETKEY 114
 # define RIGHTMOUSE 1
 # define LEFTMOUSE 2
+# define COLORKEY 99
+# define RESETCOLORKEY 112
 # else
 # define ESCAPEKEY 53
 # define UPKEY 13
@@ -37,6 +39,8 @@
 # define RESETKEY 15
 # define RIGHTMOUSE 1
 # define LEFTMOUSE 2
+# define COLORKEY
+# define RESETCOLORKEY 112
 # endif
 
 typedef	struct s_map	t_map;
@@ -61,11 +65,14 @@ struct					s_map
 	int					ytrans;
 	int					max_x;
 	int					max_y;
+	int					max_z;
+	int					min_z;
 	int					xsize;
 	int					ysize;
 	int					xpos;
 	int					ypos;
 	int					multz;
+	int					color_version;
 };
 
 struct					s_point
@@ -93,7 +100,8 @@ int						ft_data_processing(t_map *map);
 void					ft_search_coord(t_map *map);
 void					ft_mlx_init(t_map *map);
 int						ft_start_for_draw(t_map *map);
-void					ft_putpix_image(t_point *pt);	
+void					ft_putpix_image(t_point *pt);
+void					ft_putpix_image_color(t_point *pt);
 void					ft_drawline(t_point *pt);
 void					ft_search_size_for_win(t_map *map);
 int						ft_manage_events(int keycode, void *param);
@@ -105,6 +113,8 @@ void					ft_rightkey(t_map *map);
 void					ft_zkey(t_map *map);
 void					ft_xkey(t_map *map);
 void					ft_resetkey(t_map *map);
+void					ft_colorkey(t_map *map);
+void					ft_resetcolorkey(t_map *map);
 void					ft_usage(t_map *map);
 
 #endif

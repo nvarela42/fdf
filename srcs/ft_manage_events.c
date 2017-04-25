@@ -17,7 +17,7 @@ int				ft_manage_events(int keycode, void *param)
 	t_map		*event;
 
 	event = (t_map *)param;
-//	printf("%d\n", keycode);
+	printf("%d\n", keycode);
 	if (keycode == ESCAPEKEY)
 		exit(EXIT_SUCCESS);
 	else if (keycode == UPKEY)
@@ -34,5 +34,9 @@ int				ft_manage_events(int keycode, void *param)
 		ft_xkey(event);
 	else if (keycode == RESETKEY)
 		ft_resetkey(event);
+	else if (keycode == COLORKEY)
+		ft_colorkey(event);
+	else if (keycode == RESETCOLORKEY)
+		ft_resetcolorkey(event);
 	return (0);
 }

@@ -62,7 +62,7 @@ static void		ft_hoript(t_point *hpt, t_map *map, int i, int j)
 	hpt->yplus = (hpt->ydep > 0) ? 1 : -1;
 }
 
-void			ft_while(t_map *map)
+static void			ft_while(t_map *map)
 {
 	int			i;
 	int			j;
