@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 23:07:43 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/15 11:02:01 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/27 08:22:40 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fdf.h"
@@ -44,35 +44,34 @@ static int		ft_check_color(int r, int g, int b)
 ** "calcule la valeur a assigner pour chaque canaux r, g et b, en fonction
 ** de de la taille de z"
 */
-
-static int		ft_color(t_point *pt, t_map *m)
+/*
+static char      *ft_search_color(int z, t_map *m)
 {
-	int			ret;
-	int			z;
+	char		*rgb;
 
-	ret = 0;
-	z = pt->z;	
+	rgb = 0;
 	if (z >= 0 && z < m->max_z / 2)
-		ret = 0x000FF00;
+		rgb = "0x0660066";
 	else if (z >= m->max_z / 2)
-		ret = 0x0FF3300;
-	else if (z < 0 && z > m->max_z / 2)
-		ret = 0x00033FF;
+		rgb = "0x0660000";
+	else if (z < 0 && z > m->min_z / 2)
+		rgb = "0x0660099";
 	else if (z <= m->min_z / 2)
-		ret = 0x0000066;
-	return (ret);
-}
-void			ft_putpix_image_color(t_point *pt)
+		rgb = "0x06600FF";
+	return (rgb);
+}*/
+void			ft_putpix_image_color(t_point *pt, t_map *map, int i, int j)
 {
-	int			i;
+	int			y;
 	int			color;
+	int			ret_col; 
 
-	color = ft_color(pt, ft_static());
-	printf("color = %d\n", color);
-	i = pt->x * 4 + pt->y * ft_static()->size_line;
-	ft_static()->imgdata[i] = (color & 0xFF);
-	ft_static()->imgdata[i + 1] = (color & 0xFF00) >> 8;
-	ft_static()->imgdata[i + 2] = (color & 0xFF0000) >> 16;
+	color = ft_color(map, i, j);
+	y = pt->x * 4 + pt->y * ft_static()->size_line;
+	ret_col = mlx_get_color_value(ft_static()->mlx, color);
+	ft_static()->imgdata[y] = (ret_col & 0xFF);
+	ft_static()->imgdata[y + 1] = (ret_col & 0xFF00) >> 8;
+	ft_static()->imgdata[y + 2] = (ret_col & 0xFF0000) >> 16;
 }
 
 void			ft_putpix_image(t_point *pt)

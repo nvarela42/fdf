@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 03:43:42 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/21 20:18:21 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/26 18:35:33 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ static void			ft_while(t_map *map)
 			hoript = &map->pt[i][j];
 			vertipt = &map->pt[i][j];
 			ft_hoript(hoript, map, i, j);
-			ft_drawline(hoript);
+			ft_drawline(hoript, i, j);
 			vertipt = &map->pt[i][j];
 			ft_vertipt(vertipt, map, i, j);
-			ft_drawline(vertipt);
+			ft_drawline(vertipt, i, j);
 			j++;
 		}
 		i++;

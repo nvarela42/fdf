@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:26:17 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/21 13:38:23 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/27 05:09:17 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,14 @@ static t_point		*ft_fill_tab_struct(char **splitspace, int j, int size, t_map *m
 		tabpt[i].xi = i * 100 + 5;
 		tabpt[i].yi = j * 100 + 5;
 		tabpt[i].z = ft_atoi(splitcomma[0]);
+		tabpt[i].cpt = 0;
 		map->max_z = map->max_z >= tabpt[i].z ? map->max_z : tabpt[i].z;
 		map->min_z = map->min_z <= tabpt[i].z ? map->min_z : tabpt[i].z;
-		 if (splitcomma[1] == NULL)
+		if (splitcomma[1] == NULL)
 			tabpt[i].color = DEF_COLOR;
 		else
 			tabpt[i].color = ft_check_color(splitcomma[1]);
+		printf(GREEN"color = %d\n"DEFAULT_COLOR, tabpt[i].color);
 		free_double_chartab(splitcomma);
 		i++;
 	}

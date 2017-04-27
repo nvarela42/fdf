@@ -30,7 +30,11 @@ SRC			=	main.c\
 				ft_position_events.c\
 				ft_height_events.c\
 				ft_color_event.c\
+				ft_color.c\
 				ft_mouse_events.c\
+				ft_annexe_for_ft_init_var.c\
+				ft_annexe_for_ft_twelve.c\
+				ft_annexe_ft_asc.c\
 
 OBJ			=	$(patsubst %.c,srcs/%.o,$(SRC))
 

@@ -14,6 +14,10 @@
 # define MAX_XSIZE 1900
 # define MAX_YSIZE 1600
 # define SCALE 100
+# define COLOR_ONE 153102205
+# define COLOR_TWO 153102102
+# define COLOR_THREE 102102153
+#define COLOR_FOUR 102102000
 
 # ifdef __linux
 # define ESCAPEKEY 65307
@@ -39,8 +43,8 @@
 # define RESETKEY 15
 # define RIGHTMOUSE 1
 # define LEFTMOUSE 2
-# define COLORKEY
-# define RESETCOLORKEY 112
+# define COLORKEY 8
+# define RESETCOLORKEY 35
 # endif
 
 typedef	struct s_map	t_map;
@@ -90,6 +94,7 @@ struct					s_point
 	int					yend;
 	int					xplus;
 	int					yplus;
+	int					cpt;
 };
 
 int						ft_start_prog(int argc, char **argv);
@@ -97,12 +102,13 @@ t_map					*ft_static(void);
 int						ft_read_fd(char *file, t_map *map);
 void					ft_error(int n, char *str);
 int						ft_data_processing(t_map *map);
+int						ft_color(t_map *map, int i, int j);
 void					ft_search_coord(t_map *map);
 void					ft_mlx_init(t_map *map);
 int						ft_start_for_draw(t_map *map);
 void					ft_putpix_image(t_point *pt);
-void					ft_putpix_image_color(t_point *pt);
-void					ft_drawline(t_point *pt);
+void					ft_putpix_image_color(t_point *pt, t_map *map, int i, int j);
+void					ft_drawline(t_point *pt, int i, int j);
 void					ft_search_size_for_win(t_map *map);
 int						ft_manage_events(int keycode, void *param);
 int						ft_mouse_events(int button, void *param);
@@ -116,5 +122,18 @@ void					ft_resetkey(t_map *map);
 void					ft_colorkey(t_map *map);
 void					ft_resetcolorkey(t_map *map);
 void					ft_usage(t_map *map);
+int						*ft_zero_to_midmax(void);
+int						*ft_midmax_to_max(void);
+int						*ft_zero_to_midmin(void);
+int						*ft_midmin_to_min(void);
+int						ft_div(int clac, int div);
+int						ft_trans(int color);
+int						ft_div(int calc, int div);
+int						ft_trans(int color);
+int						ft_color_twelve(int color, int cp, int base);
+int						ft_twelve_one(int color, int cp, int dif);
+int						ft_twelve_two(int color, int cp, int dif);
+int						ft_twelve_three(int color, int cp, int dif);
+int						ft_twelve_four(int color, int cp, int dif);
 
 #endif
