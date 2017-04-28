@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 16:41:13 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/21 19:14:23 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/28 15:13:28 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int				ft_manage_events(int keycode, void *param)
 	t_map		*event;
 
 	event = (t_map *)param;
-	printf("%d\n", keycode);
 	if (keycode == ESCAPEKEY)
 		exit(EXIT_SUCCESS);
 	else if (keycode == UPKEY)

@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_annexe_ft_asc.c                                 :+:      :+:    :+:   */
+/*   ft_calcul_gradient.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/26 23:36:22 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/27 07:18:27 by nvarela          ###   ########.fr       */
+/*   Created: 2017/04/28 12:52:32 by nvarela           #+#    #+#             */
+/*   Updated: 2017/04/28 17:20:04 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int			ft_color_twelve(int color, int cp, int base)
+int			ft_color_gradient(int color, int cp, int base)
 {
 	int		ret;
 	int		dif;
+
 	ret = 0;
-	if (color == COLOR_ONE)
-	{
-		dif = base / 6;
-		ft_twelve_one(color, cp, dif);
-	}
-	if (color == COLOR_TWO)
+	if (color == COLOR_ONE && cp != 0)
 	{
 		dif = base / 3;
-		ft_twelve_two(color, cp, dif);
+		ret = ft_gradient_one(color, cp, dif);
 	}
-	if (color == COLOR_THREE)
+	if (color == COLOR_TWO && cp != 0)
+	{
+		dif = base / 6;
+		ret = ft_gradient_two(color, cp, dif);
+	}
+	if (color == COLOR_THREE && cp != 0)
 	{
 		dif = base / 9;
-		ft_twelve_three(color, cp, dif);
+		ret = ft_gradient_three(color, cp, dif && cp != 0);
 	}
-	if (color == COLOR_FOUR)
+	if (color == COLOR_FOUR && cp != 0)
 	{
 		dif = base / 12;
-		ft_twelve_four(color, cp, dif);
+		ret = ft_gradient_four(color, cp, dif);
 	}
 	return (ret);
 }

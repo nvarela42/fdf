@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 23:07:43 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/27 08:22:40 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/28 17:21:06 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fdf.h"
@@ -65,7 +65,7 @@ void			ft_putpix_image_color(t_point *pt, t_map *map, int i, int j)
 	int			y;
 	int			color;
 	int			ret_col; 
-
+	
 	color = ft_color(map, i, j);
 	y = pt->x * 4 + pt->y * ft_static()->size_line;
 	ret_col = mlx_get_color_value(ft_static()->mlx, color);

@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:26:17 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/27 05:09:17 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/28 13:30:52 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,7 @@ static t_point		*ft_fill_tab_struct(char **splitspace, int j, int size, t_map *m
 			tabpt[i].color = DEF_COLOR;
 		else
 			tabpt[i].color = ft_check_color(splitcomma[1]);
-		printf(GREEN"color = %d\n"DEFAULT_COLOR, tabpt[i].color);
-		free_double_chartab(splitcomma);
+			free_double_chartab(splitcomma);
 		i++;
 	}
 	return (tabpt);

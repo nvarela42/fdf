@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 13:19:02 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/27 08:22:44 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/04/28 16:31:06 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,14 @@ static int			ft_asc(int dco, int cp, int base, int calc)
 {
 	int				dif;
 	int				ret;
-
-	printf(GREY"calc = %d\n", calc);
-	printf(GREY"OK\n");;
 	ret = 0;
 	if (calc == 0)
 		return (0);
 	dif = base / (calc * 3);
-	if (calc == 4)
+	if (calc != 0)
 	{ 
-		printf(PURPLE"OK\n");
-		ret = ft_color_twelve(dco, cp, base);
+ 	
+		ret = ft_color_gradient(dco, cp, base);
 		return (ret);
 	}
 	return (0);
@@ -44,7 +41,7 @@ static int			ft_init_var(int d_co, int e_co, t_point *p, t_point *l)
 
 	cal_dco = ft_trans(d_co);
 	cal_eco = ft_trans(e_co);
-/*	if (p->z >= l->z)
+/*	if (p->z >= l->zradient
 	{
 		if (p->cpt == 1)
 			p->cpt = p->z - last->z;
@@ -71,10 +68,10 @@ static int			ft_search_color(int z, t_map *m)
 	int				rgb;
 
 	rgb = 0;
-	if (z >= 0 && z < m->max_z / 2)
-		rgb = COLOR_ONE;
-	else if (z >= m->max_z / 2)
-		rgb = COLOR_TWO;	
+	if (z >= m->max_z / 2)
+		rgb = COLOR_ONE;	
+	else if (z >= 0 && z < m->max_z / 2)
+		rgb = COLOR_TWO;
 	else if (z < 0 && z > m->min_z / 2)
 		rgb = COLOR_THREE;
 	else if (z <= m->min_z / 2)
@@ -90,7 +87,6 @@ int					ft_color(t_map *m, int i, int j)
 
 	dep_color = 0;
 	end_color = 0;
-
 	if (j < m->sline)
 	{
 		dep_color = ft_search_color(m->pt[i][j].z, m);
@@ -104,13 +100,11 @@ int					ft_color(t_map *m, int i, int j)
 		{	
 			ret = ft_init_var(dep_color, end_color, 
 			&(m->pt[i][j]), &(m->pt[i][j + 1]));
-			printf(RED"ret = %d\n"DEFAULT_COLOR, ret);
 			if (ret == 0)
 				ret = dep_color;
-			printf("ret = %d\n", ret);
 		}
 	}
-	else 
+	if (j == m->sline) 
 	{
 		dep_color = ft_search_color(m->pt[i][j].z, m);
 		ret = dep_color;

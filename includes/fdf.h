@@ -14,8 +14,8 @@
 # define MAX_XSIZE 1900
 # define MAX_YSIZE 1600
 # define SCALE 100
-# define COLOR_ONE 153102205
-# define COLOR_TWO 153102102
+# define COLOR_ONE 153102102
+# define COLOR_TWO 153102205
 # define COLOR_THREE 102102153
 #define COLOR_FOUR 102102000
 
@@ -130,10 +130,10 @@ int						ft_div(int clac, int div);
 int						ft_trans(int color);
 int						ft_div(int calc, int div);
 int						ft_trans(int color);
-int						ft_color_twelve(int color, int cp, int base);
-int						ft_twelve_one(int color, int cp, int dif);
-int						ft_twelve_two(int color, int cp, int dif);
-int						ft_twelve_three(int color, int cp, int dif);
-int						ft_twelve_four(int color, int cp, int dif);
+int						ft_color_gradient(int color, int cp, int base);
+int						ft_gradient_one(int color, int cp, int dif);
+int						ft_gradient_two(int color, int cp, int dif);
+int						ft_gradient_three(int color, int cp, int dif);
+int						ft_gradient_four(int color, int cp, int dif);
 
 #endif
