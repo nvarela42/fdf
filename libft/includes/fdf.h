@@ -38,7 +38,7 @@
 # define DOWNKEY 1
 # define LEFTKEY 0
 # define RIGHTKEY 2
-# define ZKEY 6
+# define ZKEY 6 
 # define XKEY 7
 # define RESETKEY 15
 # define RIGHTMOUSE 1
@@ -58,7 +58,7 @@ struct					s_map
 	char				*imgdata;
 	int					bits_pixs;
 	int					size_line;
-	int					endian;
+	int					endian; 
 	char				**recupline;
 	t_point				**pt;
 	int					nbline;
@@ -122,5 +122,18 @@ void					ft_resetkey(t_map *map);
 void					ft_colorkey(t_map *map);
 void					ft_resetcolorkey(t_map *map);
 void					ft_usage(t_map *map);
+int						*ft_zero_to_midmax(void);
+int						*ft_midmax_to_max(void);
+int						*ft_zero_to_midmin(void);
+int						*ft_midmin_to_min(void);
+int						ft_div(int clac, int div);
+int						ft_trans(int color);
+int						ft_div(int calc, int div);
+int						ft_trans(int color);
+int						ft_color_gradient(int color, int cp, int base);
+int						ft_gradient_one(int color, int cp, int dif);
+int						ft_gradient_two(int color, int cp, int dif);
+int						ft_gradient_three(int color, int cp, int dif);
+int						ft_gradient_four(int color, int cp, int dif);
 
 #endif

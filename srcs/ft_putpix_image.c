@@ -6,18 +6,18 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 23:07:43 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/28 17:21:06 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/04 18:34:32 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "fdf.h"
 
+#include "fdf.h"
 /*
 ** check if the format color do not exceed 255 or is not below 0 and if is
 ** is is not a good format, replace whith good format and groups all channel
 ** in one int;
-** calcule la valeur a assigner pour chaque canaux en fonction de la taille de z 
+** calcule la valeur a assigner pour chaque canaux en fonction de la taille de z
 ** "verifie si le format de la couleur n'excede pas 255 ou n'est pas
-** en dessous de zero, si ca n'est pas le bon format, remplace les 
+** en dessous de zero, si ca n'est pas le bon format, remplace les
 **  valeur avec le bon format et regroupe ensuite les 3 canaux en un int grace
 ** a un decalage binaire"
 */
@@ -64,14 +64,14 @@ void			ft_putpix_image_color(t_point *pt, t_map *map, int i, int j)
 {
 	int			y;
 	int			color;
-	int			ret_col; 
-	
-	color = ft_color(map, i, j);
+//	int			ret_col;
+
+	color = ft_color(map, pt, i, j);
 	y = pt->x * 4 + pt->y * ft_static()->size_line;
-	ret_col = mlx_get_color_value(ft_static()->mlx, color);
-	ft_static()->imgdata[y] = (ret_col & 0xFF);
-	ft_static()->imgdata[y + 1] = (ret_col & 0xFF00) >> 8;
-	ft_static()->imgdata[y + 2] = (ret_col & 0xFF0000) >> 16;
+	//ret_col = mlx_get_color_value(ft_static()->mlx, color);
+	ft_static()->imgdata[y] = (color);
+	ft_static()->imgdata[y + 1] = (color & 0xFF00) >> 8;
+	ft_static()->imgdata[y + 2] = (color & 0xFF0000) >> 16;
 }
 
 void			ft_putpix_image(t_point *pt)

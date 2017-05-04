@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:23:29 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/18 17:08:19 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/04 13:39:36 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void			ft_fill_static_struct(t_map *map)
 	map->win = NULL;
 	map->image = NULL;
 	map->recupline = NULL;
+	map->imgdata = NULL;
 	map->pt = NULL;
 	map->nbline = 0;
 	map->s_map = 0;

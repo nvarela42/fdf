@@ -32,9 +32,6 @@ SRC			=	main.c\
 				ft_color_event.c\
 				ft_color.c\
 				ft_mouse_events.c\
-				ft_annexe_ft_init_var.c\
-				ft_gradient.c\
-				ft_calcul_gradient.c\
 
 OBJ			=	$(patsubst %.c,srcs/%.o,$(SRC))
 
