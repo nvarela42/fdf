@@ -1,3 +1,14 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/05/05 18:47:34 by nvarela           #+#    #+#              #
+#    Updated: 2017/05/05 18:47:43 by nvarela          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 SYS := $(shell clang -dumpmachine)
 
@@ -30,7 +41,6 @@ SRC			=	main.c\
 				ft_position_events.c\
 				ft_height_events.c\
 				ft_color_event.c\
-				ft_color.c\
 				ft_mouse_events.c\
 
 OBJ			=	$(patsubst %.c,srcs/%.o,$(SRC))

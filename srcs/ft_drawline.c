@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 03:34:48 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/04 18:34:31 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/05 18:51:03 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void		ft_isnot_sup(t_point *pt, int i, int j)
 		}
 		if (ft_static()->color_version == 1)
 			ft_putpix_image_color(pt, ft_static(), i, j);
-		if(ft_static()->color_version == 0)
+		if (ft_static()->color_version == 0)
 			ft_putpix_image(pt);
 		y++;
 	}
@@ -60,7 +60,6 @@ static void		ft_dx_is_sup(t_point *pt, int i, int j)
 
 void			ft_drawline(t_point *pt, int i, int j)
 {
-
 	pt->xdep = abs(pt->xdep);
 	pt->ydep = abs(pt->ydep);
 	if (ft_static()->color_version == 1)

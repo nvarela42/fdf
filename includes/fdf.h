@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/05/05 18:48:14 by nvarela           #+#    #+#             */
+/*   Updated: 2017/05/05 18:48:19 by nvarela          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 
@@ -14,10 +26,10 @@
 # define MAX_XSIZE 1900
 # define MAX_YSIZE 1600
 # define SCALE 100
-# define COLOR_ONE 153102102
-# define COLOR_TWO 153102205
-# define COLOR_THREE 102102153
-#define COLOR_FOUR 102102000
+# define COLOR_ONE 255000051
+# define COLOR_TWO 102051051
+# define COLOR_THREE 102102051
+#define COLOR_FOUR 102102102
 
 # ifdef __linux
 # define ESCAPEKEY 65307
@@ -102,7 +114,6 @@ t_map					*ft_static(void);
 int						ft_read_fd(char *file, t_map *map);
 void					ft_error(int n, char *str);
 int						ft_data_processing(t_map *map);
-int						ft_color(t_map *map, int i, int j);
 void					ft_search_coord(t_map *map);
 void					ft_mlx_init(t_map *map);
 int						ft_start_for_draw(t_map *map);
