@@ -1,111 +1,101 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newgnl.c                                           :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvarela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/16 04:49:00 by nvarela           #+#    #+#             */
-/*   Updated: 2017/03/04 02:13:39 by nvarela          ###   ########.fr       */
+/*   Created: 2017/05/10 18:48:17 by nvarela           #+#    #+#             */
+/*   Updated: 2017/05/10 18:54:32 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_newfd	*search_from_lst(t_newfd **alst, int fd)
+static char		*str_mvleft(char *str, int len)
 {
-	t_newfd		*tmplst;
+	int		i;
 
-	tmplst = *alst;
-	if (tmplst)
+	i = 1;
+	while (i < len)
 	{
-		while (tmplst)
-		{
-			if (fd == tmplst->fdi)
-				return (tmplst);
-			tmplst = tmplst->next;
-		}
+		str[i - 1] = str[i];
+		i++;
 	}
-	if (!(tmplst = (t_newfd *)ft_memalloc(sizeof(t_newfd))))
-		return (NULL);
-	tmplst->fdi = fd;
-	tmplst->next = *alst;
-	*alst = tmplst;
-	return (tmplst);
+	return (str);
 }
 
-static char		*join_and_free(char *stock, char *buff, size_t read_fd)
+static char		*str_rmnullchar(char *str, int len)
 {
-	char *tmp;
-
-	if (!stock)
-	{
-		stock = ft_strndup(buff, read_fd);
-		return (stock);
-	}
-	tmp = stock;
-	if (!(stock = ft_strnjoin(stock, buff, read_fd)))
-		return (NULL);
-	ft_memdel((void **)&tmp);
-	return (stock);
-}
-
-static char		*fresh_stock(char *stock, int i)
-{
-	char *tmp;
-
-	tmp = stock;
-	stock = ft_strdup(stock + (i + 1));
-	ft_memdel((void **)&tmp);
-	return (stock);
-}
-
-static char		*work_from_stock(char *stock, char **line)
-{
-	int i;
+	int		i;
 
 	i = 0;
-	if (ft_strchr(stock, '\n') != NULL)
+	while (len)
 	{
-		i = 0;
-		while (stock[i] != '\n')
+		if (str[i] == 0)
+			str_mvleft(&str[i], len);
+		else
 			i++;
-		*line = ft_strndup(stock, i);
-		stock = fresh_stock(stock, i);
+		len--;
+	}
+	str[i] = 0;
+	return (str);
+}
+
+static int		check_buffer(char *buf, char **line)
+{
+	char	*new;
+	char	*p;
+
+	if ((p = ft_strchr(buf, '\n')) != NULL)
+	{
+		if (!(new = ft_strndup(buf, p - buf)))
+			return (-1);
+		ft_strcpy(buf, ++p);
 	}
 	else
 	{
-		*line = ft_strdup(stock);
-		ft_bzero(stock, (ft_strlen(stock)));
+		if (!(new = ft_strdup(buf)))
+			return (-1);
+		buf[0] = 0;
 	}
-	return (stock);
+	if (!(*line = ft_strjoin(*line, new)))
+		return (-1);
+	free(new);
+	if (p)
+		return (1);
+	return (0);
 }
 
-int				get_next_line(const int fd, char **line)
+static int		del_and_error(char **line)
 {
-	static t_newfd	*alst = NULL;
-	t_newfd			*clst;
-	char			buff[BUFF_SIZE + 1];
-	int				read_fd;
+	if (*line)
+		ft_strdel(line);
+	return (-1);
+}
 
-	if (fd < 0 || !line || BUFF_SIZE < 1)
-		return (-1);
-	clst = search_from_lst(&alst, fd);
-	while ((read_fd = read(fd, buff, BUFF_SIZE)) > 0 &&
-			(ft_strchr(buff, '\n')) == NULL)
-		clst->stock = join_and_free(clst->stock, buff, read_fd);
-	if (read_fd < 0)
-		return (-1);
-	if (read_fd > 0 && (ft_strchr(buff, '\n')) != NULL)
+int				get_next_line(int const fd, char **line)
+{
+	static char		buffer[BUFF_SIZE + 1] = {0};
+	int				ret;
+	int				buffchck;
+
+	if (!(*line = ft_strnew(0))
+			|| (buffchck = check_buffer(buffer, line)) < 0)
+		return (del_and_error(line));
+	if (buffchck)
+		return (1);
+	while ((ret = read(fd, buffer, BUFF_SIZE)) > 0)
 	{
-		clst->stock = join_and_free(clst->stock, buff, read_fd);
-		clst->stock = work_from_stock(clst->stock, line);
+		buffer[ret] = 0;
+		str_rmnullchar(buffer, ret);
+		if ((buffchck = check_buffer(buffer, line)) == 1)
+			return (1);
+		else if (buffchck == -1)
+			return (-1);
 	}
-	if (read_fd == 0 && (ft_strlen(clst->stock)) == 0)
-		return (0);
-	if (read_fd == 0 && (ft_strlen(clst->stock)) != 0)
-	{
-		clst->stock = work_from_stock(clst->stock, line);
-	}
-	return (1);
+	if (ret == 0 && ft_strlen(*line))
+		return (1);
+	ft_strdel(line);
+	return (ret);
 }

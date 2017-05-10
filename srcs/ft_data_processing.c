@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:26:17 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/28 13:30:52 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/10 13:34:55 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ static int			ft_init_ptstruct(t_map *map)
 		map->pt[i] = NULL;
 		i++;
 	}
+	printf ("%d\n", map->s_map);
 	return (0);
 }
 

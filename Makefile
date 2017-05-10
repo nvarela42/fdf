@@ -6,7 +6,7 @@
 #    By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/05 18:47:34 by nvarela           #+#    #+#              #
-#    Updated: 2017/05/05 18:47:43 by nvarela          ###   ########.fr        #
+#    Updated: 2017/05/10 15:17:38 by nvarela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ SRC			=	main.c\
 				ft_position_events.c\
 				ft_height_events.c\
 				ft_color_event.c\
-				ft_mouse_events.c\
+				ft_zoom_event.c\
+				ft_free_fdf.c\
 
 OBJ			=	$(patsubst %.c,srcs/%.o,$(SRC))
 

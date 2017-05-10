@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:23:29 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/04 13:39:36 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/10 13:42:29 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_map				*ft_static(void)
 	if (!map && init == 0)
 	{
 		init = 1;
-		if (!(map = (t_map*)malloc(sizeof(t_map))))
+		if ((map = (t_map*)malloc(sizeof(t_map))) == NULL)
 			return (NULL);
 		ft_fill_static_struct(map);
 	}

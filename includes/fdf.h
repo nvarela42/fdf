@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 18:48:14 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/05 18:48:19 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/10 17:40:39 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@
 # define ZKEY 122
 # define XKEY 120
 # define RESETKEY 114
-# define RIGHTMOUSE 1
-# define LEFTMOUSE 2
+# define PLUSKEY 69
+# define LESSKEY 78
 # define COLORKEY 99
 # define RESETCOLORKEY 112
 # else
@@ -53,8 +53,8 @@
 # define ZKEY 6
 # define XKEY 7
 # define RESETKEY 15
-# define RIGHTMOUSE 1
-# define LEFTMOUSE 2
+# define PLUSKEY 69
+# define LESSKEY 78
 # define COLORKEY 8
 # define RESETCOLORKEY 35
 # endif
@@ -122,7 +122,8 @@ void					ft_putpix_image_color(t_point *pt, t_map *map, int i, int j);
 void					ft_drawline(t_point *pt, int i, int j);
 void					ft_search_size_for_win(t_map *map);
 int						ft_manage_events(int keycode, void *param);
-int						ft_mouse_events(int button, void *param);
+void					ft_zoomplus(t_map *map);
+void					ft_zoomless(t_map *map);
 void					ft_upkey(t_map *map);
 void					ft_downkey(t_map *map);
 void					ft_leftkey(t_map *map);
@@ -133,5 +134,6 @@ void					ft_resetkey(t_map *map);
 void					ft_colorkey(t_map *map);
 void					ft_resetcolorkey(t_map *map);
 void					ft_usage(t_map *map);
+void					ft_free_fdf(t_map *map);
 
 #endif

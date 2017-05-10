@@ -6,13 +6,13 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 16:41:13 by nvarela           #+#    #+#             */
-/*   Updated: 2017/04/28 15:13:28 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/10 16:03:26 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int				ft_manage_events(int keycode, void *param)
+int			ft_manage_events(int keycode, void *param)
 {
 	t_map		*event;
 
@@ -37,5 +37,9 @@ int				ft_manage_events(int keycode, void *param)
 		ft_colorkey(event);
 	else if (keycode == RESETCOLORKEY)
 		ft_resetcolorkey(event);
+	else if (keycode == PLUSKEY)
+		ft_zoomplus(event);
+	else if (keycode == LESSKEY)
+		ft_zoomless(event);
 	return (0);
 }
