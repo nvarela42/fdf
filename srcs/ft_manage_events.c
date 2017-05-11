@@ -6,13 +6,13 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 16:41:13 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/10 16:03:26 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 14:38:46 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int			ft_manage_events(int keycode, void *param)
+static void		ft_manage_one(int keycode, void *param)
 {
 	t_map		*event;
 
@@ -31,7 +31,15 @@ int			ft_manage_events(int keycode, void *param)
 		ft_zkey(event);
 	else if (keycode == XKEY)
 		ft_xkey(event);
-	else if (keycode == RESETKEY)
+}
+
+int				ft_manage_events(int keycode, void *param)
+{
+	t_map		*event;
+
+	event = (t_map *)param;
+	ft_manage_one(keycode, param);
+	if (keycode == RESETKEY)
 		ft_resetkey(event);
 	else if (keycode == COLORKEY)
 		ft_colorkey(event);

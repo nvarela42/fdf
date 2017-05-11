@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvarela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 18:00:06 by nvarela           #+#    #+#             */
-/*   Updated: 2017/03/31 12:18:15 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 11:47:51 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
-char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin(char const *s1, char const *s2, int free_n);
 char			*ft_strnjoin(const char *s1, const char *s2, size_t size);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);

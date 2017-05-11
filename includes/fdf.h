@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 18:48:14 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/10 17:40:39 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 14:56:01 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,34 +29,34 @@
 # define COLOR_ONE 255000051
 # define COLOR_TWO 102051051
 # define COLOR_THREE 102102051
-#define COLOR_FOUR 102102102
+# define COLOR_FOUR 102102102
 
 # ifdef __linux
-# define ESCAPEKEY 65307
-# define UPKEY 119
-# define DOWNKEY 115
-# define LEFTKEY 97
-# define RIGHTKEY 101
-# define ZKEY 122
-# define XKEY 120
-# define RESETKEY 114
-# define PLUSKEY 69
-# define LESSKEY 78
-# define COLORKEY 99
-# define RESETCOLORKEY 112
+#  define ESCAPEKEY 65307
+#  define UPKEY 119
+#  define DOWNKEY 115
+#  define LEFTKEY 97
+#  define RIGHTKEY 101
+#  define ZKEY 122
+#  define XKEY 120
+#  define RESETKEY 114
+#  define PLUSKEY 69
+#  define LESSKEY 78
+#  define COLORKEY 99
+#  define RESETCOLORKEY 112
 # else
-# define ESCAPEKEY 53
-# define UPKEY 13
-# define DOWNKEY 1
-# define LEFTKEY 0
-# define RIGHTKEY 2
-# define ZKEY 6
-# define XKEY 7
-# define RESETKEY 15
-# define PLUSKEY 69
-# define LESSKEY 78
-# define COLORKEY 8
-# define RESETCOLORKEY 35
+#  define ESCAPEKEY 53
+#  define UPKEY 13
+#  define DOWNKEY 1
+#  define LEFTKEY 0
+#  define RIGHTKEY 2
+#  define ZKEY 6
+#  define XKEY 7
+#  define RESETKEY 15
+#  define PLUSKEY 69
+#  define LESSKEY 78
+#  define COLORKEY 8
+#  define RESETCOLORKEY 35
 # endif
 
 typedef	struct s_map	t_map;
@@ -118,7 +118,8 @@ void					ft_search_coord(t_map *map);
 void					ft_mlx_init(t_map *map);
 int						ft_start_for_draw(t_map *map);
 void					ft_putpix_image(t_point *pt);
-void					ft_putpix_image_color(t_point *pt, t_map *map, int i, int j);
+void					ft_putpix_image_color(t_point *pt, t_map *map,
+						int i, int j);
 void					ft_drawline(t_point *pt, int i, int j);
 void					ft_search_size_for_win(t_map *map);
 int						ft_manage_events(int keycode, void *param);

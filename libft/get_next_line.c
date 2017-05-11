@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 18:48:17 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/10 18:54:32 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 11:47:13 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int		check_buffer(char *buf, char **line)
 			return (-1);
 		buf[0] = 0;
 	}
-	if (!(*line = ft_strjoin(*line, new)))
+	if (!(*line = ft_strjoin(*line, new, 3)))
 		return (-1);
 	free(new);
 	if (p)

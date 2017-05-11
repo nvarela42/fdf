@@ -6,13 +6,13 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 12:08:07 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/10 13:29:45 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 14:36:12 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void 	ft_free_the_pix(int s_map, t_point **pt)
+static void		ft_free_the_pix(int s_map, t_point **pt)
 {
 	int			i;
 
@@ -25,7 +25,7 @@ static void 	ft_free_the_pix(int s_map, t_point **pt)
 	free(pt);
 }
 
-void 			ft_free_fdf(t_map *map)
+void			ft_free_fdf(t_map *map)
 {
 	if (map == NULL)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:26:17 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/10 13:34:55 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 14:41:11 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 ** check the char color format and return the result in int
 */
 
-static int			ft_check_color(char *str)
+static int		ft_check_color(char *str)
 {
-	int				i;
-	int				def_color;
+	int			i;
+	int			def_color;
 
 	i = 2;
 	def_color = DEF_COLOR;
@@ -42,9 +42,9 @@ static int			ft_check_color(char *str)
 **"check le format des points"
 */
 
-static int			ft_check_point(char *splitcomma)
+static int		ft_check_point(char *splitcomma)
 {
-	int				i;
+	int			i;
 
 	i = 0;
 	while (splitcomma[i] != '\0')
@@ -59,9 +59,9 @@ static int			ft_check_point(char *splitcomma)
 	return (0);
 }
 
-static int			ft_init_ptstruct(t_map *map)
+static int		ft_init_ptstruct(t_map *map)
 {
-	int				i;
+	int			i;
 
 	i = 0;
 	if (!(map->pt = (t_point **)malloc(sizeof(t_point *) * map->s_map)))
@@ -71,7 +71,6 @@ static int			ft_init_ptstruct(t_map *map)
 		map->pt[i] = NULL;
 		i++;
 	}
-	printf ("%d\n", map->s_map);
 	return (0);
 }
 
@@ -80,32 +79,29 @@ static int			ft_init_ptstruct(t_map *map)
 **"initialisation des variables du tableau de struct"
 */
 
-static t_point		*ft_fill_tab_struct(char **splitspace, int j, int size, t_map *map)
+static t_point	*ft_fill_tab_struct(char **split, int j, int size, t_map *map)
 {
-	int				i;
-	t_point			*tabpt;
-	char			**splitcomma;
+	int			i;
+	t_point		*tabpt;
+	char		**splitcomma;
 
 	if (!((tabpt = (t_point *)malloc(sizeof(t_point) * size + 1))))
 		return (NULL);
 	i = 0;
 	while (i < size)
 	{
-		if (!(splitcomma = ft_strsplit(splitspace[i], ',')))
+		if (!(splitcomma = ft_strsplit(split[i], ',')))
 			return (NULL);
 		if (ft_check_point(splitcomma[0]) == -1)
 			return (NULL);
 		tabpt[i].xi = i * 100 + 5;
 		tabpt[i].yi = j * 100 + 5;
 		tabpt[i].z = ft_atoi(splitcomma[0]);
-		tabpt[i].cpt = 0;
 		map->max_z = map->max_z >= tabpt[i].z ? map->max_z : tabpt[i].z;
 		map->min_z = map->min_z <= tabpt[i].z ? map->min_z : tabpt[i].z;
-		if (splitcomma[1] == NULL)
-			tabpt[i].color = DEF_COLOR;
-		else
-			tabpt[i].color = ft_check_color(splitcomma[1]);
-			free_double_chartab(splitcomma);
+		tabpt[i].color = splitcomma[1] == NULL ? DEF_COLOR :
+		ft_check_color(splitcomma[1]);
+		free_double_chartab(splitcomma);
 		i++;
 	}
 	return (tabpt);
@@ -116,12 +112,12 @@ static t_point		*ft_fill_tab_struct(char **splitspace, int j, int size, t_map *m
 **"recuperation de toutes les donnees a exploiter"
 */
 
-int					ft_data_processing(t_map *map)
+int				ft_data_processing(t_map *map)
 {
-	int				i;
-	char			**splitspace;
-	t_point			*tmp_pt;
-	int				checksize;
+	int			i;
+	char		**splitspace;
+	t_point		*tmp_pt;
+	int			checksize;
 
 	if ((ft_init_ptstruct(map)) == -1)
 		return (-1);

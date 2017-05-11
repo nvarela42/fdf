@@ -3,39 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvarela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 12:52:21 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/10 18:53:05 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 11:55:42 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2, int free_n)
 {
-	size_t	i;
-	size_t	j;
 	char	*freshstr;
 	size_t	len;
 
-	if (s1 == 0 || s2 == 0)
-		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	freshstr = (char *)malloc(sizeof(char) * (len + 1));
-	if (freshstr == 0)
+	if (!freshstr)
 		return (NULL);
-	i = 0;
-	while (i < ft_strlen(s1))
+	ft_strcpy(freshstr, s1);
+	ft_strcat(freshstr, s2);
+	if (free_n == 1)
+		free((char *)s1);
+	if (free_n == 2)
+		free((char *)s2);
+	if (free_n == 0)
 	{
-		freshstr[i] = s1[i];
-		i++;
+		free((char *)s1);
+		free((char *)s2);
 	}
-	j = 0;
-	while (j < ft_strlen(s2))
-	{
-		freshstr[i++] = s2[j++];
-	}
-	freshstr[i] = '\0';
 	return (freshstr);
 }

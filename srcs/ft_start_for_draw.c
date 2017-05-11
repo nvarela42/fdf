@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 03:43:42 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/10 18:00:04 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 15:31:27 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **"calcule pour relier les points verticaux"
 */
 
-static void		ft_vertipt(t_point *vpt, t_map *map, int i, int j)
+static void			ft_vertipt(t_point *vpt, t_map *map, int i, int j)
 {
 	vpt->x = vpt->xi;
 	vpt->y = vpt->yi;
@@ -42,7 +42,7 @@ static void		ft_vertipt(t_point *vpt, t_map *map, int i, int j)
 **"calcule pour relier les pout horizontaux"
 */
 
-static void		ft_hoript(t_point *hpt, t_map *map, int i, int j)
+static void			ft_hoript(t_point *hpt, t_map *map, int i, int j)
 {
 	hpt->x = hpt->xi;
 	hpt->y = hpt->yi;
@@ -87,7 +87,7 @@ static void			ft_while(t_map *map)
 	}
 }
 
-int				ft_start_for_draw(t_map *map)
+int					ft_start_for_draw(t_map *map)
 {
 	ft_mlx_init(map);
 	ft_while(map);
