@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 12:08:07 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/11 14:36:12 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 16:19:04 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,6 @@ void			ft_free_fdf(t_map *map)
 		free_double_chartab(map->recupline);
 	if (map->pt != NULL)
 		ft_free_the_pix(map->s_map, map->pt);
+	if (map)
+		free(map);
 }

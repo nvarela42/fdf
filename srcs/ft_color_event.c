@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 18:50:14 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/05 18:50:17 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 18:58:35 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void				ft_colorkey(t_map *map)
 	mlx_destroy_window(map->mlx, map->win);
 	map->color_version = 1;
 	ft_search_coord(ft_static());
-	ft_search_size_for_win(map);
 	ft_start_for_draw(ft_static());
 }
 
@@ -30,6 +29,5 @@ void				ft_resetcolorkey(t_map *map)
 	mlx_destroy_window(map->mlx, map->win);
 	map->color_version = 0;
 	ft_search_coord(ft_static());
-	ft_search_size_for_win(map);
 	ft_start_for_draw(ft_static());
 }

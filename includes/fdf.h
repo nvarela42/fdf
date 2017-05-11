@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 18:48:14 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/11 14:56:01 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 16:35:08 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
-# define SIZE 100
 # define MARGIN 5
 # define HEIGHT_MUL 1
 # define DEF_COLOR 0xFFFFFF

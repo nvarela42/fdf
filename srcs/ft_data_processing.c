@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:26:17 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/11 14:41:11 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/11 17:14:27 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int		ft_check_color(char *str)
 	int			i;
 	int			def_color;
 
-	i = 2;
+	i = 1;
 	def_color = DEF_COLOR;
 	if (ft_ishexa(str) == 0)
 	{
