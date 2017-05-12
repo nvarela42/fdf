@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 18:48:14 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/11 16:35:08 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/12 18:25:46 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,17 @@
 # define MARGIN 5
 # define HEIGHT_MUL 1
 # define DEF_COLOR 0xFFFFFF
-# define MAX_XSIZE 1900
-# define MAX_YSIZE 1600
+# define MAX_XSIZE 2200
+# define MAX_YSIZE 1375
 # define SCALE 100
-# define COLOR_ONE 255000051
-# define COLOR_TWO 102051051
-# define COLOR_THREE 102102051
-# define COLOR_FOUR 102102102
+# define COLOR_ONE 0x339966
+# define COLOR_TWO 0xFFFF99
+# define COLOR_THREE 0xFF9933
+# define COLOR_FOUR 0xFF3300
+# define COLOR_FIVE 0x33CCFF
+# define COLOR_SIX 0x9933FF
+# define COLOR_SEVEN 0xCC00FF
+# define COLOR_HEIGHT 0xFF66FF
 
 # ifdef __linux
 #  define ESCAPEKEY 65307

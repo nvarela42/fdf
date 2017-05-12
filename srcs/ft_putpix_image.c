@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 23:07:43 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/05 18:47:13 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/12 17:29:25 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,23 @@ static int		ft_search_color(int z, t_map *m)
 {
 	int			rgb;
 
-	rgb = 0;
-	if (z >= 0 && z < m->max_z / 2)
+	rgb = 0xFFFFFF;
+	if (z >= 0 && z < m->max_z / 4)
 		rgb = COLOR_ONE;
-	else if (z >= m->max_z / 2)
+	else if (z >= m->max_z / 4 && z < m->max_z / 3)
 		rgb = COLOR_TWO;
-	else if (z < 0 && z > m->min_z / 2)
+	else if (z >= m->max_z / 3 && z < m->max_z / 2)
 		rgb = COLOR_THREE;
-	else if (z <= m->min_z / 2)
+	else if (z >= m->max_z / 2 && z <= m->max_z)
 		rgb = COLOR_FOUR;
+	else if (z < 0 && z > m->min_z / 4)
+		rgb = COLOR_FIVE;
+	else if (z <= m->min_z / 4 && z > m->min_z / 3)
+		rgb = COLOR_SIX;
+	else if (z <= m->min_z / 3 && z > m->min_z / 2)
+		rgb = COLOR_SEVEN;
+	else if (z <= m->min_z / 2 && z >= m->min_z)
+		rgb = COLOR_HEIGHT;
 	return (rgb);
 }
 

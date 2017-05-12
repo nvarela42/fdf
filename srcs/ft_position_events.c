@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 16:45:09 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/11 14:59:37 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/12 15:15:34 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void				ft_upkey(t_map *map)
 	mlx_clear_window(map->mlx, map->win);
 	mlx_put_image_to_window(map->mlx, map->win, map->image, map->xpos,
 	map->ypos);
+	ft_usage(map);
 }
 
 void				ft_downkey(t_map *map)
@@ -26,6 +27,7 @@ void				ft_downkey(t_map *map)
 	mlx_clear_window(map->mlx, map->win);
 	mlx_put_image_to_window(map->mlx, map->win, map->image, map->xpos,
 	map->ypos);
+	ft_usage(map);
 }
 
 void				ft_leftkey(t_map *map)
@@ -34,6 +36,7 @@ void				ft_leftkey(t_map *map)
 	mlx_clear_window(map->mlx, map->win);
 	mlx_put_image_to_window(map->mlx, map->win, map->image, map->xpos,
 	map->ypos);
+	ft_usage(map);
 }
 
 void				ft_rightkey(t_map *map)
@@ -42,4 +45,5 @@ void				ft_rightkey(t_map *map)
 	mlx_clear_window(map->mlx, map->win);
 	mlx_put_image_to_window(map->mlx, map->win, map->image, map->xpos,
 	map->ypos);
+	ft_usage(map);
 }

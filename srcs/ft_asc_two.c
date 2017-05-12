@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_asc_two.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/31 11:23:45 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/12 12:10:52 by nvarela          ###   ########.fr       */
+/*   Created: 2017/05/05 16:03:21 by nvarela           #+#    #+#             */
+/*   Updated: 2017/05/05 16:50:15 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		main(int argc, char **argv)
+static int				ft_asc_two_one(int cp, int lz)
 {
-	if (ft_start_prog(argc, argv) == -1)
-		return (0);
-	ft_search_coord(ft_static());
-	ft_search_size_for_win(ft_static());
-	if (ft_start_for_draw(ft_static()) == -1)
-		return (0);
-	ft_free_fdf(ft_static());
-	return (0);
+	int		ret;
+
+	ret = 0;
+	if (cp >= 0 && cp < lz / 3 )
+		ret = COLOR_TWO;
+	if (cp >= lz / 3 && cp < lz / 2)
+		ret = 200000051;
+	if (cp >= lz / 2 && cp < lz)
+		ret = 153000051;
+	if (cp == lz)
+		ret = COLOR_ONE;
+	cp += lz / 3;
+	return (ret);
+}
+
+int						ft_asc_two(int dif, int cp, int lz)
+{
+	int			ret;
+
+	ret = 0;
+	if (dif == 1)
+		ret = ft_asc_two_one(cp,lz);
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 13:26:17 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/11 17:14:27 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/12 18:36:51 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ static int		ft_check_color(char *str)
 	int			i;
 	int			def_color;
 
-	i = 1;
+	i = 2;
 	def_color = DEF_COLOR;
+	if (str == NULL)
+		return (DEF_COLOR);
 	if (ft_ishexa(str) == 0)
 	{
 		ft_error(2, str);
@@ -87,8 +89,8 @@ static t_point	*ft_fill_tab_struct(char **split, int j, int size, t_map *map)
 
 	if (!((tabpt = (t_point *)malloc(sizeof(t_point) * size + 1))))
 		return (NULL);
-	i = 0;
-	while (i < size)
+	i = -1;
+	while (++i < size)
 	{
 		if (!(splitcomma = ft_strsplit(split[i], ',')))
 			return (NULL);
@@ -97,12 +99,11 @@ static t_point	*ft_fill_tab_struct(char **split, int j, int size, t_map *map)
 		tabpt[i].xi = i * 100 + 5;
 		tabpt[i].yi = j * 100 + 5;
 		tabpt[i].z = ft_atoi(splitcomma[0]);
+		tabpt[i].cpt = 0;
 		map->max_z = map->max_z >= tabpt[i].z ? map->max_z : tabpt[i].z;
 		map->min_z = map->min_z <= tabpt[i].z ? map->min_z : tabpt[i].z;
-		tabpt[i].color = splitcomma[1] == NULL ? DEF_COLOR :
-		ft_check_color(splitcomma[1]);
+		tabpt[i].color = (ft_check_color(splitcomma[1]));
 		free_double_chartab(splitcomma);
-		i++;
 	}
 	return (tabpt);
 }
