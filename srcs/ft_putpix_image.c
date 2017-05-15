@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 23:07:43 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/12 17:29:25 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/15 13:25:51 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,26 @@
 static int		ft_search_color(int z, t_map *m)
 {
 	int			rgb;
+	int			divisor;
 
+	divisor = m->max_z / 4;
 	rgb = 0xFFFFFF;
-	if (z >= 0 && z < m->max_z / 4)
+	if (z >= 0 && z < divisor)
 		rgb = COLOR_ONE;
-	else if (z >= m->max_z / 4 && z < m->max_z / 3)
+	else if (z >= divisor && z < divisor * 2)
 		rgb = COLOR_TWO;
-	else if (z >= m->max_z / 3 && z < m->max_z / 2)
+	else if (z >= m->max_z * 2 && z < divisor * 3)
 		rgb = COLOR_THREE;
-	else if (z >= m->max_z / 2 && z <= m->max_z)
+	else if (z >= divisor * 3 && z <= m->max_z)
 		rgb = COLOR_FOUR;
-	else if (z < 0 && z > m->min_z / 4)
+	divisor = m->min_z / 4;
+	if (z < 0 && z > divisor)
 		rgb = COLOR_FIVE;
-	else if (z <= m->min_z / 4 && z > m->min_z / 3)
+	else if (z <= divisor && z > divisor * 2)
 		rgb = COLOR_SIX;
-	else if (z <= m->min_z / 3 && z > m->min_z / 2)
+	else if (z <= divisor * 2 && z > divisor * 3)
 		rgb = COLOR_SEVEN;
-	else if (z <= m->min_z / 2 && z >= m->min_z)
+	else if (z <= divisor * 3 && z >= m->min_z)
 		rgb = COLOR_HEIGHT;
 	return (rgb);
 }

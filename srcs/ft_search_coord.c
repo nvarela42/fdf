@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 23:08:49 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/12 18:40:16 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/15 15:57:59 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,6 @@ void			ft_search_coord(t_map *map)
 	ft_cal_whith_z(map->pt, map, 0, 0);
 	ft_cal_max_y(map->pt, map, 0, 0);
 	if (map->pt[0][map->sline - 1].xi > map->xsize &&
-		map->pt[0][0].yi > map->ysize)
+	 	map->pt[0][0].yi > map->ysize)
 		map->xpos = map->pt[0][map->sline - 1].xi - (map->xsize / 2);
 }

@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 15:51:10 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/12 14:42:57 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/15 12:13:58 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void		ft_print_usageone(t_map *map, int y)
 	mlx_string_put(map->mlx, map->win, 125, 0, DEF_COLOR, "press 'd' key");
 	mlx_string_put(map->mlx, map->win, 0, y, DEF_COLOR, "Move left:");
 	mlx_string_put(map->mlx, map->win, 125, y, DEF_COLOR, "press 'a' key");
-	mlx_string_put(map->mlx, map->win, 0, y * 2 , DEF_COLOR, "Move up:");
+	mlx_string_put(map->mlx, map->win, 0, y * 2, DEF_COLOR, "Move up:");
 	mlx_string_put(map->mlx, map->win, 125, y * 2, DEF_COLOR, "press 'w' key");
-	mlx_string_put(map->mlx, map->win, 0, y *3, DEF_COLOR, "Move down:");
+	mlx_string_put(map->mlx, map->win, 0, y * 3, DEF_COLOR, "Move down:");
 	mlx_string_put(map->mlx, map->win, 125, y * 3, DEF_COLOR, "press 's' key");
 	mlx_string_put(map->mlx, map->win, 0, y * 4, DEF_COLOR, "Up height:");
 	mlx_string_put(map->mlx, map->win, 125, y * 4, DEF_COLOR, "press 'x' key");
