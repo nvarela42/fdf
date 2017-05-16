@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/15 06:14:48 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/15 12:14:21 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/16 16:05:24 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,16 @@ void			ft_search_size_for_win(t_map *map)
 			if (map->max_x < map->xsize && map->max_y < map->ysize)
 			{
 				map->xpos = map->pt[0][0].x - MARGIN;
-				map->ypos = (map->pt[0][map->s_map - 1].y);
+				map->ypos =(map->pt[0][map->s_map - 1].y) + 150;
+				if (map->scaleinit == 0)
+					map->scaleinit = map->scale;
 				return ;
 			}
 		}
 	}
+	if (map->scaleinit == 0)
+		map->scaleinit = map->scale;
 	map->xpos = map->pt[0][0].x - MARGIN;
-	map->ypos = (map->pt[0][map->s_map - 1].y);
+	map->ypos = (map->pt[0][map->s_map - 1].y) + 150;
 	return ;
 }

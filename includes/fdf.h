@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 18:48:14 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/12 18:25:46 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/16 17:59:46 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 # define MAX_XSIZE 2200
 # define MAX_YSIZE 1375
 # define SCALE 100
-# define COLOR_ONE 0x339966
-# define COLOR_TWO 0xFFFF99
-# define COLOR_THREE 0xFF9933
-# define COLOR_FOUR 0xFF3300
+# define COLOR_ONE 0x33F766
+# define COLOR_TWO 0xE7FF99
+# define COLOR_THREE 0xFFB636
+# define COLOR_FOUR 0xFF5B00
 # define COLOR_FIVE 0x33CCFF
 # define COLOR_SIX 0x9933FF
 # define COLOR_SEVEN 0xCC00FF
@@ -67,6 +67,8 @@ typedef struct s_point	t_point;
 
 struct					s_map
 {
+	int					argc;
+	char				**argv;
 	void				*mlx;
 	void				*win;
 	void				*image;
@@ -92,6 +94,8 @@ struct					s_map
 	int					ypos;
 	int					multz;
 	int					color_version;
+	int					zoomplus;
+	int					scaleinit;
 };
 
 struct					s_point
@@ -114,6 +118,7 @@ struct					s_point
 
 int						ft_start_prog(int argc, char **argv);
 t_map					*ft_static(void);
+void					ft_fill_static_struct(t_map *map);
 int						ft_read_fd(char *file, t_map *map);
 void					ft_error(int n, char *str);
 int						ft_data_processing(t_map *map);

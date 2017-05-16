@@ -6,13 +6,13 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:23:29 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/10 13:42:29 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/16 16:34:28 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void			ft_fill_static_struct(t_map *map)
+void			ft_fill_static_struct(t_map *map)
 {
 	map->mlx = NULL;
 	map->win = NULL;
@@ -36,6 +36,7 @@ static void			ft_fill_static_struct(t_map *map)
 	map->ypos = 0;
 	map->multz = HEIGHT_MUL;
 	map->color_version = 0;
+	map->scaleinit = 0;
 }
 
 t_map				*ft_static(void)

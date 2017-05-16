@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:21:12 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/10 13:36:20 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/16 18:02:48 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int		ft_start_prog(int argc, char **argv)
 		ft_error(1, NULL);
 		return (-1);
 	}
+	ft_static()->argc = argc;
+	ft_static()->argv = argv;
 	if (ft_read_fd(argv[1], ft_static()) == -1)
 	{
 		ft_error(1, NULL);

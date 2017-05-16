@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 19:07:29 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/15 15:59:43 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/16 17:56:47 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ void			ft_zoomplus(t_map *map)
 	mlx_clear_window(map->mlx, map->win);
 	mlx_destroy_image(map->mlx, map->image);
 	mlx_destroy_window(map->mlx, map->win);
-	map->scale += map->scale;
+	printf("mscale = %d\n", map->scale);
+	if (map->scale < map->scaleinit * 2 && map->scaleinit / 2 != 0)
+	{
+		map->scale += (map->scaleinit / 7);
+		// map->xpos -= map->scaleinit;
+	}
 	ft_search_coord(ft_static());
 	ft_start_for_draw(ft_static());
 }
@@ -28,7 +33,11 @@ void			ft_zoomless(t_map *map)
 	mlx_destroy_image(map->mlx, map->image);
 	mlx_destroy_window(map->mlx, map->win);
 	if (map->scale > 1)
-		map->scale -= map->scale /4;
+	{
+		map->scale -= (map->scaleinit / 7);
+		// map->xpos += map->scaleinit;
+	}
 	ft_search_coord(map);
+	ft_search_size_for_win(map);
 	ft_start_for_draw(ft_static());
 }
