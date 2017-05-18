@@ -6,7 +6,7 @@
 /*   By: nvarela <nvarela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:23:29 by nvarela           #+#    #+#             */
-/*   Updated: 2017/05/16 16:34:28 by nvarela          ###   ########.fr       */
+/*   Updated: 2017/05/18 15:38:45 by nvarela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void			ft_fill_static_struct(t_map *map)
 	map->scaleinit = 0;
 }
 
-t_map				*ft_static(void)
+t_map			*ft_static(void)
 {
 	static t_map	*map = NULL;
 	static int		init = 0;
